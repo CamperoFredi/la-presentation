@@ -12,7 +12,7 @@ const body = Inter({
   subsets: ["latin"],
   variable: "--font-body",
 });
-
+const basePath = process.env.__NEXT_ROUTER_BASEPATH || "";
 export const metadata: Metadata = {
   title: "Los Angeles — City of Angels",
   description:
@@ -21,19 +21,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/estados-unidos.png",
+        url: `${basePath}/estados-unidos.png`,
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/estados-unidos.png",
+        url: `${basePath}/estados-unidos.png`,
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/estados-unidos.png",
+        url: `${basePath}/estados-unidos.png`,
         type: "image/svg+xml",
       },
     ],
-    apple: "/estados-unidos.png",
+    apple: `${basePath}/estados-unidos.png`,
   },
 };
 
