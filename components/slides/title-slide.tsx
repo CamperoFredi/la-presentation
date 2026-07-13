@@ -5,16 +5,17 @@ import { MapPin, Star, Sun } from 'lucide-react'
 import { easeOut, lineReveal, riseIn, stagger } from '@/lib/motion'
 
 export function TitleSlide() {
+  const basePath = process.env.__NEXT_ROUTER_BASEPATH || "";
   return (
     <section className="relative flex min-h-dvh w-full items-end justify-start overflow-hidden py-12">
       {/* Background image with slow zoom */}
       <motion.img
-        src="/la-palms.png"
+        src={`${basePath}/la-palms.png`}
         alt="Los Angeles palm trees against a sunset sky"
         className="absolute inset-0 h-full w-full object-cover"
-        initial={{ scale: 1.15, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.6, ease: easeOut }}
+        initial={{scale: 1.15, opacity: 0}}
+        animate={{scale: 1, opacity: 1}}
+        transition={{duration: 1.6, ease: easeOut}}
       />
       {/* Warm cinematic overlay */}
       <div className="absolute inset-0 bg-linear-to-t from-background via-background/70 to-background/20" />
@@ -54,8 +55,8 @@ export function TitleSlide() {
           variants={riseIn}
           className="mt-6 max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base md:mt-8 md:text-lg"
         >
-          The City of Angels. Entertainment capital of the world, melting pot
-          of cultures, and home to the West Coast's most famous sunset.
+          The City of Angels. Entertainment capital of the world, melting pot of
+          cultures, and home to the West Coast's most famous sunset.
         </motion.p>
 
         <motion.div
@@ -63,10 +64,10 @@ export function TitleSlide() {
           className="mt-8 flex flex-wrap items-center gap-2 sm:gap-3 md:mt-10"
         >
           {[
-            { icon: MapPin, label: '34.05° N, 118.24° W' },
-            { icon: Star, label: 'Founded in 1781' },
-            { icon: Sun, label: '284 sunny days / year' },
-          ].map(({ icon: Icon, label }) => (
+            {icon: MapPin, label: "34.05° N, 118.24° W"},
+            {icon: Star, label: "Founded in 1781"},
+            {icon: Sun, label: "284 sunny days / year"},
+          ].map(({icon: Icon, label}) => (
             <span
               key={label}
               className="flex items-center gap-2 rounded-full border border-border bg-card/60 px-3.5 py-1.5 text-xs text-card-foreground backdrop-blur-sm sm:px-4 sm:py-2 sm:text-sm"
@@ -78,5 +79,5 @@ export function TitleSlide() {
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }

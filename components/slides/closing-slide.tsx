@@ -4,15 +4,16 @@ import { motion } from 'motion/react'
 import { easeOut, lineReveal, riseIn, stagger } from '@/lib/motion'
 
 export function ClosingSlide() {
+  const basePath = process.env.__NEXT_ROUTER_BASEPATH || "";
   return (
     <section className="relative flex h-full w-full items-center justify-center overflow-hidden">
       <motion.img
-        src="/la-beach.png"
+        src={`${basePath}/la-beach.png`}
         alt="Sunset over the Los Angeles coastline"
         className="absolute inset-0 h-full w-full object-cover"
-        initial={{ scale: 1.15 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 2, ease: easeOut }}
+        initial={{scale: 1.15}}
+        animate={{scale: 1}}
+        transition={{duration: 2, ease: easeOut}}
       />
       <div className="absolute inset-0 bg-background/70" />
       <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_50%_100%,var(--coral)/30,transparent_65%)]" />
@@ -53,5 +54,5 @@ export function ClosingSlide() {
         </motion.p>
       </motion.div>
     </section>
-  )
+  );
 }

@@ -28,6 +28,8 @@ const dishes = [
 ]
 
 export function FoodSlide() {
+  const basePath = process.env.__NEXT_ROUTER_BASEPATH || "";
+  
   return (
     <Slide>
       <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12">
@@ -37,7 +39,7 @@ export function FoodSlide() {
 
           <MaskHeadline
             className="mt-3 text-3xl sm:mt-4 sm:text-4xl md:text-5xl lg:text-6xl"
-            lines={['A map', 'of flavors']}
+            lines={["A map", "of flavors"]}
           />
 
           <Rise className="mt-4 max-w-md text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
@@ -49,9 +51,13 @@ export function FoodSlide() {
             {dishes.map((dish, i) => (
               <motion.div
                 key={dish.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + i * 0.1, duration: 0.6, ease: easeOut }}
+                initial={{opacity: 0, y: 20}}
+                animate={{opacity: 1, y: 0}}
+                transition={{
+                  delay: 0.5 + i * 0.1,
+                  duration: 0.6,
+                  ease: easeOut,
+                }}
                 className="group rounded-2xl border border-border bg-card/60 p-3.5 backdrop-blur-sm transition-colors hover:border-accent sm:p-4"
               >
                 <div className="text-[10px] font-semibold uppercase tracking-widest text-accent sm:text-xs">
@@ -70,13 +76,13 @@ export function FoodSlide() {
 
         {/* Image Container */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.9, ease: easeOut }}
+          initial={{opacity: 0, scale: 0.94}}
+          animate={{opacity: 1, scale: 1}}
+          transition={{delay: 0.3, duration: 0.9, ease: easeOut}}
           className="relative order-2 overflow-hidden rounded-2xl border border-border lg:order-1 sm:rounded-3xl"
         >
           <img
-            src="/la-food.png"
+            src={`${basePath}/la-food.png`}
             alt="Los Angeles street tacos"
             className="aspect-video max-h-55 w-full object-cover sm:aspect-4/3"
           />
@@ -88,5 +94,5 @@ export function FoodSlide() {
         </motion.div>
       </div>
     </Slide>
-  )
+  );
 }

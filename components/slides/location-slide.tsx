@@ -12,17 +12,18 @@ const facts = [
 ]
 
 export function LocationSlide() {
+  const basePath = process.env.__NEXT_ROUTER_BASEPATH || "";
   return (
     <Slide>
       <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
         <div>
           <Kicker>01 — Location</Kicker>
-          
+
           <MaskHeadline
             className="mt-3 text-3xl sm:mt-4 sm:text-4xl md:text-5xl lg:text-6xl"
-            lines={['Where the desert', 'meets the Pacific']}
+            lines={["Where the desert", "meets the Pacific"]}
           />
-          
+
           <Rise className="mt-4 max-w-md text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
             Located in Southern California, Los Angeles sprawls between the San
             Gabriel Mountains and the Pacific Ocean, boasting a Mediterranean
@@ -33,9 +34,13 @@ export function LocationSlide() {
             {facts.map((fact, i) => (
               <motion.div
                 key={fact.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + i * 0.1, duration: 0.6, ease: easeOut }}
+                initial={{opacity: 0, y: 20}}
+                animate={{opacity: 1, y: 0}}
+                transition={{
+                  delay: 0.5 + i * 0.1,
+                  duration: 0.6,
+                  ease: easeOut,
+                }}
                 className="rounded-2xl border border-border bg-card/60 p-3.5 backdrop-blur-sm sm:p-4"
               >
                 <div className="font-display text-2xl font-bold text-accent sm:text-3xl">
@@ -50,13 +55,13 @@ export function LocationSlide() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.9, ease: easeOut }}
+          initial={{opacity: 0, scale: 0.94}}
+          animate={{opacity: 1, scale: 1}}
+          transition={{delay: 0.3, duration: 0.9, ease: easeOut}}
           className="relative overflow-hidden rounded-2xl border border-border sm:rounded-3xl"
         >
           <img
-            src="/la-skyline.png"
+            src={`${basePath}/la-skyline.png`}
             alt="Downtown Los Angeles skyline at sunset"
             className="aspect-video w-full object-cover sm:aspect-4/3 lg:aspect-4/5"
           />
@@ -69,5 +74,5 @@ export function LocationSlide() {
         </motion.div>
       </div>
     </Slide>
-  )
+  );
 }
