@@ -14,9 +14,9 @@ const body = Inter({
 });
 const basePath = process.env.__NEXT_ROUTER_BASEPATH || "";
 export const metadata: Metadata = {
-  title: "Los Angeles — City of Angels",
+  title: "California",
   description:
-    "An interactive visual presentation about Los Angeles: location, history, food, culture, icons, and distinct neighborhoods.",
+    "An interactive visual presentation about California: location, history, food, culture, icons, and distinct neighborhoods.",
   generator: "v0.app",
   icons: {
     icon: [

@@ -34,19 +34,19 @@ export function IconsSlide() {
           <Kicker>05 — Icons</Kicker>
           <MaskHeadline
             className="mt-3 text-3xl sm:mt-4 sm:text-5xl md:text-5xl lg:text-6xl"
-            lines={['World-famous landmarks']}
+            lines={["World-famous landmarks"]}
           />
         </div>
         <Rise className="max-w-xs text-pretty text-xs leading-relaxed text-muted-foreground sm:text-sm">
-          Postcard views featured in thousands of movies that define the
-          city’s global imagination.
+          Postcard views featured in thousands of movies that define the city’s
+          global imagination.
         </Rise>
       </div>
 
       {/* Carrusel responsive y autónomo */}
-      <div className="mt-6 sm:mt-8">
-        <Carousel speed={20} showOverlay={true} items={defaultLandmarks}/>
+      <div className="mt-3 sm:mt-2">
+        <Carousel speed={20} showOverlay={true} items={defaultLandmarks} />
       </div>
     </Slide>
-  )
+  );
 }

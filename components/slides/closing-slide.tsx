@@ -41,7 +41,7 @@ export function ClosingSlide() {
               variants={lineReveal}
               className="block bg-linear-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
             >
-              in L.A.
+              in CALIFORNIA
             </motion.span>
           </span>
         </h2>

@@ -5,14 +5,15 @@ import { easeOut } from '@/lib/motion'
 import { Kicker, MaskHeadline, Rise, Slide } from './primitives'
 
 const facts = [
-  { value: '3.9M', label: 'city residents' },
-  { value: '#2', label: 'most populous US city' },
-  { value: '502 sq mi', label: '1,302 km² surface area' },
-  { value: '~22 mi', label: '35 km of Pacific coastline' },
-]
+  {value: "38.9M", label: "state population"},
+  {value: "#1", label: "most populous US state"},
+  {value: "163k sq mi", label: "423,970 km² total area"},
+  {value: "840 mi", label: "1,350 km Pacific coastline"},
+];
 
 export function LocationSlide() {
   const basePath = process.env.__NEXT_ROUTER_BASEPATH || "";
+
   return (
     <Slide>
       <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
@@ -21,13 +22,13 @@ export function LocationSlide() {
 
           <MaskHeadline
             className="mt-3 text-3xl sm:mt-4 sm:text-4xl md:text-5xl lg:text-6xl"
-            lines={["Where the desert", "meets the Pacific"]}
+            lines={["Between mountains,", "deserts & the Pacific"]}
           />
 
           <Rise className="mt-4 max-w-md text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Located in Southern California, Los Angeles sprawls between the San
-            Gabriel Mountains and the Pacific Ocean, boasting a Mediterranean
-            climate with dry summers and mild winters.
+            Stretching along the West Coast of the United States, California
+            spans diverse landscapes from temperate rainforests and high
+            mountain ranges to arid deserts and iconic Pacific coastlines.
           </Rise>
 
           <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:max-w-md sm:gap-4">
@@ -58,19 +59,16 @@ export function LocationSlide() {
           initial={{opacity: 0, scale: 0.94}}
           animate={{opacity: 1, scale: 1}}
           transition={{delay: 0.3, duration: 0.9, ease: easeOut}}
-          className="relative overflow-hidden rounded-2xl border border-border sm:rounded-3xl"
+          className="relative hidden aspect-4/5 w-full overflow-hidden border border-border lg:block mask-[linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent),linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] mask-intersect"
         >
-          <img
-            src={`${basePath}/la-skyline.png`}
-            alt="Downtown Los Angeles skyline at sunset"
-            className="aspect-video w-full object-cover sm:aspect-4/3 lg:aspect-4/5"
+          <video
+            src={`${basePath}/location.mp4`}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover"
           />
-          <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-linear-to-t from-background/90 to-transparent p-4 sm:p-5">
-            <span className="font-display text-base font-semibold sm:text-lg">
-              Downtown LA
-            </span>
-            <span className="text-xs text-accent sm:text-sm">West Coast</span>
-          </div>
         </motion.div>
       </div>
     </Slide>
