@@ -43,7 +43,7 @@ return (
           <img
             src={`${basePath}${item.img || "/placeholder.svg"}`}
             alt={item.name}
-            className="aspect-4/5 w-full object-cover transition-transform duration-700 group-hover/card:scale-105 sm:aspect-4/3 md:aspect-3/4"
+            className="aspect-4/5 w-full object-cover transition-transform duration-700 group-hover/card:scale-105 sm:aspect-4/3 md:aspect-4/4"
           />
 
           {showOverlay && (

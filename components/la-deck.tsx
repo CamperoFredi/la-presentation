@@ -62,8 +62,8 @@ export function LaDeck() {
       <div className="absolute inset-x-0 top-0 z-30 h-1 bg-border/50">
         <motion.div
           className="h-full bg-linear-to-r from-primary to-accent"
-          animate={{ width: `${progress}%` }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          animate={{width: `${progress}%`}}
+          transition={{duration: 0.5, ease: [0.16, 1, 0.3, 1]}}
         />
       </div>
 
@@ -77,11 +77,11 @@ export function LaDeck() {
           animate="center"
           exit="exit"
           drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
+          dragConstraints={{left: 0, right: 0}}
           dragElastic={0.2}
           onDragEnd={(_, info) => {
-            if (info.offset.x < -80) paginate(1)
-            else if (info.offset.x > 80) paginate(-1)
+            if (info.offset.x < -80) paginate(1);
+            else if (info.offset.x > 80) paginate(-1);
           }}
           className="absolute inset-0 cursor-grab touch-pan-y active:cursor-grabbing"
         >
@@ -92,7 +92,7 @@ export function LaDeck() {
       {/* Chapter label — bottom left */}
       <div className="pointer-events-none absolute bottom-4 left-4 z-30 sm:bottom-6 sm:left-6 md:bottom-8 md:left-16 lg:left-24">
         <div className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground sm:text-sm">
-          <span className="text-accent">L.A.</span>
+          <span className="text-accent">CALIFORNIA</span>
           <span className=""> — {slides[index].label}</span>
         </div>
       </div>
@@ -100,9 +100,9 @@ export function LaDeck() {
       {/* Controls — bottom right */}
       <div className="absolute bottom-4 right-4 z-30 flex items-center gap-3 sm:bottom-6 sm:right-6 sm:gap-4 md:bottom-8 md:right-16 lg:right-24">
         <span className="font-mono text-xs text-muted-foreground sm:text-sm">
-          {String(index + 1).padStart(2, '0')}
+          {String(index + 1).padStart(2, "0")}
           <span className="mx-1 opacity-50">/</span>
-          {String(slides.length).padStart(2, '0')}
+          {String(slides.length).padStart(2, "0")}
         </span>
         <div className="flex gap-1.5 sm:gap-2">
           <button
@@ -142,13 +142,13 @@ export function LaDeck() {
             <span
               className={`size-2 rounded-full transition-all ${
                 i === index
-                  ? 'scale-125 bg-accent'
-                  : 'bg-muted-foreground/40 group-hover:bg-muted-foreground'
+                  ? "scale-125 bg-accent"
+                  : "bg-muted-foreground/40 group-hover:bg-muted-foreground"
               }`}
             />
           </button>
         ))}
       </div>
     </main>
-  )
+  );
 }
